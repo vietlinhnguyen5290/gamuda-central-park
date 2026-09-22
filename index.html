@@ -512,15 +512,13 @@ body.engaged .dock{transform:none}
   <div class="wrap">
     <h2>Khoảnh khắc ở Gamuda Central Park</h2>
     <div class="gallery-grid">
-      <div class="ph"><img data-img="cr3" alt="Phối cảnh Gamuda Central Park Yên Sở" loading="lazy"></div>
-      <div class="ph"><img data-img="g5" alt="Không gian xanh Gamuda City Yên Sở" loading="lazy"></div>
-      <div class="ph"><img data-img="g6" alt="Không gian xanh Gamuda City Yên Sở" loading="lazy"></div>
-      <div class="ph"><img data-img="park" alt="Công viên Yên Sở" loading="lazy"></div>
-      <div class="ph"><img data-img="cr1" alt="Phối cảnh Gamuda Central Park Yên Sở" loading="lazy"></div>
-      <div class="ph"><img data-img="g1" alt="Không gian xanh Gamuda City Yên Sở" loading="lazy"></div>
-      <div class="ph"><img data-img="g3" alt="Không gian xanh Gamuda City Yên Sở" loading="lazy"></div>
-    </div>
-  </div>
+      <div class="ph"><img data-img="gal1" alt="Phối cảnh Gamuda Central Park Yên Sở" loading="lazy"></div>
+      <div class="ph"><img data-img="gal2" alt="Không gian xanh Gamuda City Yên Sở" loading="lazy"></div>
+      <div class="ph"><img data-img="gal3" alt="Không gian xanh Gamuda City Yên Sở" loading="lazy"></div>
+      <div class="ph"><img data-img="gal4" alt="Công viên Yên Sở" loading="lazy"></div>
+      <div class="ph"><img data-img="gal5" alt="Phối cảnh Gamuda Central Park Yên Sở" loading="lazy"></div>
+      <div class="ph"><img data-img="gal6" alt="Không gian xanh Gamuda City Yên Sở" loading="lazy"></div>
+      <div class="ph"><img data-img="gal7" alt="Không gian xanh Gamuda City Yên Sở" loading="lazy"></div>
 </section>
 
 <!-- THÔNG TIN DỰ ÁN -->
@@ -626,23 +624,40 @@ document.querySelectorAll('[data-tel]').forEach(el => el.href = 'tel:' + HOTLINE
 document.querySelectorAll('[data-zalo]').forEach(el => el.href = 'https://zalo.me/' + ZALO);
 
 const GL = "https://storage.googleapis.com/glvncorpweb01p-bucket/";
+const CR = {                       // ảnh chính thức dự án Central Residence
+  main: GL+"Central_Residence_Main_Image_d684421dce_bd1c732ec0.webp",
+  g01:  GL+"Gallery_Central_Residence_01_320af71bd3_add34b5a68.jpg",
+  g02:  GL+"Gallery_Central_Residence_02_5a8eacfe08_811fce6d9a.jpg",
+  g03:  GL+"Gallery_Central_Residence_03_99fc60c5a7_af75a5ef63.jpg"
+};
+const GC = {                       // ảnh thực tế khu đô thị Gamuda City
+  a: GL+"GCHGG_18_031_dec8501178.jpg", b: GL+"GCHGG_18_026_045a33432c.jpg",
+  c: GL+"GCHGG_18_001_1241043771.jpg", d: GL+"GCHGG_18_024_55cc148e31.jpg",
+  e: GL+"GCHGG_18_009_a5ff25c914.jpg", f: GL+"GCHGG_18_030_b8204b65a8.jpg",
+  g: GL+"GCHGG_18_032_a4b757ee86.jpg",
+  s1: "https://gamudaland.com.vn/images/vn/development/gamudacity/slider1.jpg",
+  s2: "https://gamudaland.com.vn/images/vn/development/gamudacity/slider2.jpg",
+  s3: "https://gamudaland.com.vn/images/vn/development/gamudacity/slider3.jpg"
+};
+// Mỗi vị trí thử lần lượt: ảnh trong thư mục images (nếu có) => ảnh chính thức trên mạng
 const IMAGES = {
-  cr1:  [GL+"Gallery_Central_Residence_01_320af71bd3_add34b5a68.jpg", "images/cr1.jpg"],
-  cr2:  [GL+"Gallery_Central_Residence_02_5a8eacfe08_811fce6d9a.jpg", "images/cr2.jpg"],
-  cr3:  [GL+"Gallery_Central_Residence_03_99fc60c5a7_af75a5ef63.jpg", "images/cr3.jpg"],
-  park: [GL+"GCHGG_18_031_dec8501178.jpg", "images/park.jpg"],
-  c1: ["images/kn-noi-khu.jpg"], c2: ["images/kn-mua-sam.jpg"], c3: ["images/kn-giao-thong.jpg"],
+  g1:   ["images/toan-canh.jpg",     CR.main],   // dải ảnh lớn sau lời mở đầu
+  park: ["images/cong-vien.jpg",     GC.a],      // phần công viên - ảnh lớn
+  g2:   ["images/duong-dao.jpg",     GC.d],      // phần công viên - ảnh nhỏ
+  cr1:  ["images/phoi-canh-1.jpg",   CR.g01],    // phần ngôi nhà - ảnh lớn
+  cr2:  ["images/phoi-canh-2.jpg",   CR.g02],    // phần ngôi nhà - ảnh nhỏ
+  g3:   ["images/mat-nuoc.jpg",      CR.g03],    // dải ảnh "Đi lên là mặt nước"
+  g4:   ["images/ket-noi.jpg",       GC.b],      // phần kết nối
+  cr3:  ["images/phoi-canh-3.jpg",   CR.g03],    // form đăng ký
+  // thư viện ảnh cuối trang
+  gal1: ["images/tv-1.jpg", CR.g01], gal2: ["images/tv-2.jpg", GC.f], gal3: ["images/tv-3.jpg", GC.c],
+  gal4: ["images/tv-4.jpg", CR.main], gal5: ["images/tv-5.jpg", GC.g], gal6: ["images/tv-6.jpg", GC.e],
+  gal7: ["images/tv-7.jpg", CR.g02],
+  // tiện ích: chưa có ảnh chính thức, đang dùng tranh minh họa. Thả ảnh vào images/ là tự thay
   ti1: ["images/ti-be-boi-vo-cuc.jpg"], ti2: ["images/ti-be-boi-bon-mua.jpg"], ti3: ["images/ti-gym-yoga.jpg"],
-  ti4: ["images/ti-thuong-mai.jpg"], ti5: ["images/ti-duong-dao.jpg"], ti6: ["images/ti-truong-hoc.jpg"], ti7: ["images/ti-leparc.jpg"],
-  s1:   ["https://gamudaland.com.vn/images/vn/development/gamudacity/slider1.jpg", "images/s1.jpg"],
-  s2:   ["https://gamudaland.com.vn/images/vn/development/gamudacity/slider2.jpg", "images/s2.jpg"],
-  s3:   ["https://gamudaland.com.vn/images/vn/development/gamudacity/slider3.jpg", "images/s3.jpg"],
-  g1:   [GL+"GCHGG_18_026_045a33432c.jpg", "images/g1.jpg"],
-  g2:   [GL+"GCHGG_18_001_1241043771.jpg", "images/g2.jpg"],
-  g3:   [GL+"GCHGG_18_024_55cc148e31.jpg", "images/g3.jpg"],
-  g4:   [GL+"GCHGG_18_009_a5ff25c914.jpg", "images/g4.jpg"],
-  g5:   [GL+"GCHGG_18_030_b8204b65a8.jpg", "images/g5.jpg"],
-  g6:   [GL+"GCHGG_18_032_a4b757ee86.jpg", "images/g6.jpg"]
+  ti4: ["images/ti-thuong-mai.jpg"], ti5: ["images/ti-duong-dao.jpg", GC.s1], ti6: ["images/ti-truong-hoc.jpg"],
+  ti7: ["images/ti-leparc.jpg"],
+  c1: ["images/kn-noi-khu.jpg", GC.s2], c2: ["images/kn-mua-sam.jpg"], c3: ["images/kn-giao-thong.jpg"]
 };
 const GENERIC_ILLU = `<svg class="illu" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Minh họa công viên Yên Sở"><rect width="400" height="300" fill="#D6ECE8"/><circle cx="300" cy="80" r="24" fill="#F6E7C3"/><g fill="#F4F8F6"><rect x="170" y="70" width="22" height="100"/><rect x="200" y="58" width="26" height="112"/><rect x="234" y="76" width="20" height="94"/></g><path d="M0 170 C80 150 160 165 240 152 C300 144 350 158 400 150 L400 180 L0 180Z" fill="#6FA88F"/><rect y="178" width="400" height="122" fill="#8FC3C6"/><g opacity=".45" fill="#F4F8F6"><rect x="170" y="182" width="22" height="50"/><rect x="200" y="182" width="26" height="58"/><rect x="234" y="182" width="20" height="46"/></g><path d="M0 220 H400 M0 250 H400" stroke="#B6E0E6" stroke-width="2" opacity=".6"/></svg>`;
 document.querySelectorAll('.ph').forEach(ph => { if (!ph.querySelector('.illu')) ph.insertAdjacentHTML('afterbegin', GENERIC_ILLU); });
